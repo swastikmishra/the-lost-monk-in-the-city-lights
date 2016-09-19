@@ -1,5 +1,0 @@
-AL,Tungjatjeta
-AT, Grüßgott
-BG, zdravei 
-BA, dobar dan
-HR, bok
