@@ -96,7 +96,7 @@ h3{
 	left: 0; right: 0;
 	margin: 0 auto;
 }
-.active{
+.activeImage{
 	opacity: 1;
 	transition: all 0.5s ease;
 	position: absolute;
