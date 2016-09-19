@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swastik Mishra</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans+Condensed:300|Poiret+One|Yanone+Kaffeesatz" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="heading">The Lost Monk Lost In The City Lights</h1>
+          <hr class="faded"/>
+        </div>
+      </div>
+    </div>  
+
+    <img id="loader" src="img/loader2.svg">
+
+    <div class="container" id="MainContainer">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <img src="img/dinstagram/1.png" class="center-block poster active">
+          <img src="img/dinstagram/2.png" class="center-block poster">
+          <img src="img/dinstagram/3.png" class="center-block poster">
+          <img src="img/dinstagram/4.png" class="center-block poster">
+          <img src="img/dinstagram/5.png" class="center-block poster">
+          <img src="img/dinstagram/6.png" class="center-block poster">
+          <img src="img/dinstagram/7.png" class="center-block poster">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 content">
+          <h3>DInstagram</h3>
+          <p>Platform: <b>Android 2.1+</b></p>
+          <p><b>PHP, Javascript, CSS3, HTML5, Java</b></p>
+          <p>For those who miss a download button so much while surfing across Instagram. This comes with a download button below each media(picture and video except ads).</p>
+          <button class="download"><i class="fa fa-download"></i> Download</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="staticProfile">
+      <h1 id="staticProfileh1" onclick="showMyLinks()">Swastik Mishra</h1>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-github"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+      <a href="#"><i class="fa fa-google"></i></a>
+      <a href="#"><i class="fa fa-whatsapp"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function() {
+      document.getElementById("loader").style.opacity = "0";
+    });
+      var show = false;
+      function showMyLinks(){
+        var elements = document.getElementsByClassName('staticProfile')[0].getElementsByTagName('a');
+        if(show == false){
+          $('#staticProfileh1').addClass("active");
+          for(var x = 0; x < elements.length; x++)
+            elements[x].className = "active";
+          show = true;
+        }else{
+          $('#staticProfileh1').removeClass("active");
+          for(var x = 0; x < elements.length; x++)
+            elements[x].className = "";
+          show = true;
+          show = false;
+        } 
+      }
+      var imageCounter = 0;
+      function showImage(){
+        var images = document.getElementsByClassName('poster');
+        if(images.length > 0){
+          for(var x = 0 ; x < images.length; x++)
+            if(x == imageCounter)
+              images[x].className = "center-block poster active";
+            else
+              images[x].className = "center-block poster";
+          imageCounter = imageCounter < images.length-1 ? imageCounter+1 : 0;
+        }
+      }
+      setInterval(showImage, 3500);
+
+      var degrees = 0;
+      function animateButtonBackground(){
+        var btn = document.getElementsByClassName('download');
+        if(btn.length > 0){
+          btn = btn[0];
+          btn.style.background = "linear-gradient("+degrees+"deg, seagreen 0%, #444 100%)";
+          degrees < 365 ? degrees++ : degrees = 0; 
+        }
+      }
+      setInterval(animateButtonBackground, 100);
+    </script>
+  </body>
+</html>  

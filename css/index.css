@@ -1,0 +1,131 @@
+body{
+	background-color: #333;
+	font-family: Yanone Kaffeesatz, Open Sans;
+	background-position: left top;
+	background-repeat: no-repeat;
+	background-size: 100vh;
+	border-top: 5px solid seagreen;
+	color: #ccc;
+	padding-bottom: 80px;
+}
+.staticProfile{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	cursor: pointer;
+	z-index: 99999999;
+}
+.staticProfile h1{
+	font-family: 'Poiret One';
+	color: #444;
+	font-size: 40px;
+	text-shadow: 0px 0px 10px #ccc;
+	text-indent: -120px;
+	border-bottom: 2px solid seagreen;
+	padding: 5px;
+	transition: all 2s ease;
+}
+.staticProfile:hover h1{
+	text-indent: 0px;
+	transition: all 2s ease;
+	color: #bbb;
+	text-shadow: 0px 0px 0px #ccc;
+}
+.staticProfile a{
+	display: block;
+	font-size: 40px;
+	text-align: right;
+	opacity: 0;
+	transition: all 0.5s ease;
+	color: seagreen;
+	font-size: 0px;
+}
+.staticProfile a:hover{
+	color: khaki;
+	transition: all 1s ease;
+}
+.staticProfile .active{
+	opacity: 1;
+	transition: all 1s ease;
+	font-size: 40px;
+}
+.staticProfile h1.active{
+	opacity: 1;
+	transition: all 1s ease;
+	text-indent: 0px;
+	color: #bbb;
+	font-size: 40px;
+	text-shadow: 0px 0px 0px #ccc;
+}
+.heading{
+	color: #888;
+	font-family: 'Open Sans Condensed';
+	font-size: 35px;
+	text-align: center;
+}
+.faded{
+	box-shadow: none;
+	border: none;
+	height: 2px;
+	background: linear-gradient(to right, transparent 0%, seagreen 50% ,transparent 100%);
+}	
+p{
+	text-align: justify;
+	color: #999;
+	font-size: 20px;
+	font-family: Courier;
+}
+@media(max-width: 600px)
+{
+	p{ font-size: 16px; }
+	.heading{ font-size: 25px; }
+}
+h3{
+	font-family: Open Sans;
+	font-weight: lighter;
+	color: #777;
+}
+.content{
+	margin-top: 450px;
+}
+.poster{
+	max-height: 400px;
+	opacity: 0;
+	transition: all 2s ease;
+	position: absolute;
+	left: 0; right: 0;
+	margin: 0 auto;
+}
+.active{
+	opacity: 1;
+	transition: all 0.5s ease;
+	position: absolute;
+	left: 0; right: 0;
+	margin: 0 auto;
+}
+@media(min-width: 990px){
+	.content{
+		margin-top: 0px;
+	}
+}
+.download{
+	padding: 25px 15px;
+	color: #ccc;
+	border-radius: 4px;
+	font-size: 22px;
+	font-family: Poiret One;
+	font-weight: bold;
+	background-color: seagreen;
+	border: none;
+	box-shadow: none;
+}
+#loader{
+	position: absolute;
+	height: 15%;
+	top:35%;
+	bottom:0;
+	left:0;
+	right:0;
+	margin: 0 auto;
+	opacity: 1;
+}

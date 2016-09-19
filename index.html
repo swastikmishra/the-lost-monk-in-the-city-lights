@@ -1,0 +1,169 @@
+<!--
+<?php
+  $ip = getenv('HTTP_CLIENT_IP')?:
+  getenv('HTTP_X_FORWARDED_FOR')?:
+  getenv('HTTP_X_FORWARDED')?:
+  getenv('HTTP_FORWARDED_FOR')?:
+  getenv('HTTP_FORWARDED')?:
+  getenv('REMOTE_ADDR');
+  $ip = '103.61.255.53'; //or any other IP here
+  $s = file_get_contents('http://ip2c.org/'.$ip);
+  $country_code = null;
+  switch($s[0])
+  {
+    case '0':
+      $country_code = null;
+      break;
+    case '1':
+      $reply = explode(';',$s);
+      /*echo '<br>Two-letter: '.$reply[1];
+      echo '<br>Three-letter: '.$reply[2];
+      echo '<br>Full name: '.$reply[3];*/
+      $country_code = $reply[1];
+      break;
+    case '2':
+      $country_code = null;
+      break;
+  }
+?>-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swastik Mishra</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans+Condensed:300|Poiret+One|Yanone+Kaffeesatz" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="heading">The Lost Monk Lost In The City Lights</h1>
+          <hr class="faded"/>
+        </div>
+      </div>
+    </div>  
+
+    <img id="loader" src="img/loader2.svg">
+
+    <div class="container" id="MainContainer">
+      <div class="row">
+        <div class="col-sm-12">
+          <p id="cursor"></p>
+        </div>
+      </div>
+    </div>
+
+  	<div class="staticProfile">
+  		<h1 id="staticProfileh1" onclick="showMyLinks()">Swastik Mishra</h1>
+  		<a href="#"><i class="fa fa-linkedin"></i></a>
+  		<a href="#"><i class="fa fa-github"></i></a>
+  		<a href="#"><i class="fa fa-youtube"></i></a>
+  		<a href="#"><i class="fa fa-google"></i></a>
+  		<a href="#"><i class="fa fa-whatsapp"></i></a>
+  		<a href="#"><i class="fa fa-instagram"></i></a>
+  	</div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/history.js"></script>
+    <script>
+      $(document).ready(function() {
+        document.getElementById("loader").style.opacity = "0";
+      });
+      var homeUrl = "http://localhost/jyotik/";
+    	var show = false;
+    	function showMyLinks(){
+    		var elements = document.getElementsByClassName('staticProfile')[0].getElementsByTagName('a');
+    		if(show == false){
+          $('#staticProfileh1').addClass("active");
+    			for(var x = 0; x < elements.length; x++)
+    				elements[x].className = "active";
+    			show = true;
+    		}else{
+          $('#staticProfileh1').removeClass("active");
+    			for(var x = 0; x < elements.length; x++)
+    				elements[x].className = "";
+    			show = true;
+    			show = false;
+    		}	
+    	}
+
+      var lines = 0;
+      var str = ['sudo su -',
+                '[sudo] password of my life : xxxxx',
+                "Hey. It's me, the lost monk in the city lights. Hmm, sounds weird, but yes I am lost in the city lights.",
+                "I guess you are from Rajasthan, except the case you are running a vpn or a tor browser. And if so, I doubt your presence on my website. Just kidding.",
+                "I am friendly with this extensions .php .js .css .html .c .cpp .py .jar .java .sql, even though they scare me a lot of time.",
+                "I like sublime text, visual studio code, atom, phpstorm, android studio, eclipse, netbeans for coding.",
+                "I am still learning, and will be learning always, I love to learn. To code.",
+                "I also love to write, and I write here ",
+                "I have made these two apps for android phones. "];
+      var link = ['<a href="#">blogs.thelostmonkinthecitylights.me</a>',
+                  '<a href="yvd.html">Youtube Video Audio Downloader</a> and ',
+                  '<a href="dinstagram.html">DInstagram.</a>'
+                  ];
+
+      var element = document.getElementById("cursor");
+      var i = 0;
+      
+      function injectText(temp_str){
+          setTimeout(function(){
+            if(i < temp_str.length){
+              element.innerHTML += temp_str.charAt(i);
+              injectText(temp_str);
+              i++;
+            }
+            else{
+              if(lines == 7)
+                element.innerHTML += link[0]; 
+              if(lines == 8)
+                element.innerHTML += link[1]+link[2]; 
+              lines++;
+              i = 0;
+              console.log(lines);
+              if(lines < str.length){
+                /*if(lines%2 == 0 && lines > 2){
+                  let str1 = element.innerHTML.split('<br>')[element.innerHTML.split('<br>').length-1];
+                  let str2 = element.innerHTML.split('<br>')[element.innerHTML.split('<br>').length-2];
+                  let str3 = element.innerHTML.split('<br>')[element.innerHTML.split('<br>').length-3];
+                  element.innerHTML = str3+"<br>"+str2+"<br>"+str1;
+                }*/
+                element.innerHTML += "<br/><i class='fa fa-terminal'></i> ";
+                injectText(str[lines]);
+              } } }, 5);
+      }
+      element.innerHTML += "<i class='fa fa-terminal'></i> ";
+      injectText(str[lines]);
+
+      var imageCounter = 0;
+      function showImage(){
+        var images = document.getElementsByClassName('poster');
+        if(images.length > 0){
+          for(var x = 0 ; x < images.length; x++)
+            if(x == imageCounter)
+              images[x].className = "center-block poster active";
+            else
+              images[x].className = "center-block poster";
+          imageCounter = imageCounter < images.length-1 ? imageCounter+1 : 0;
+        }
+      }
+      setInterval(showImage, 3500);
+
+      var degrees = 0;
+      function animateButtonBackground(){
+        var btn = document.getElementsByClassName('download');
+        if(btn.length > 0){
+          btn = btn[0];
+          btn.style.background = "linear-gradient("+degrees+"deg, seagreen 0%, #444 100%)";
+          degrees < 365 ? degrees++ : degrees = 0; 
+        }
+      }
+      setInterval(animateButtonBackground, 100);
+    </script>
+  </body>
+</html>
